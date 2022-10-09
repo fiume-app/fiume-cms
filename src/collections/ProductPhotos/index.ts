@@ -1,4 +1,6 @@
 import { CollectionConfig } from "payload/types";
+import afterDelete from "./hooks/afterDelete";
+import beforeChange from "./hooks/beforeChange";
 
 const ProductPhotos: CollectionConfig = {
   slug: 'product_photos',
@@ -31,10 +33,21 @@ const ProductPhotos: CollectionConfig = {
         crop: 'center',
       },
     ],
-    adminThumbnail: 'medium',
+    disableLocalStorage: true,
     mimeTypes: ['image/*'],
+    adminThumbnail: ({ doc }) => {
+      return `https://fiume-product-photos.s3.ap-south-1.amazonaws.com/${doc.filename}`;
+    },
   },
   fields: [],
+  hooks: {
+    beforeChange: [
+      beforeChange,
+    ],
+    afterDelete: [
+      afterDelete,
+    ]
+  }
 };
 
 export default ProductPhotos;

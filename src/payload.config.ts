@@ -3,15 +3,13 @@ import path from 'path';
 import Admins from './collections/Admins';
 import Resources from './collections/Resources';
 import AccessControlPolicies from './collections/AccessControlPolicies';
-import Sellers from './collections/Sellers';
-import Kyc from './collections/Kyc';
 import Buyers from './collections/Buyers';
 import Addresses from './collections/Addresses';
 import Products from './collections/Products';
-import ProductPhotos from './collections/ProductPhotos';
 import Patterns from './collections/Patterns';
 import Inventory from './collections/Inventory';
 import Orders from './collections/Orders';
+import ProductPhotos from './collections/ProductPhotos';
 
 export default buildConfig({
   serverURL: 'http://localhost:3000',
